@@ -22,7 +22,7 @@ class Image_data(object):
 
     """
 
-    def __init__(self, npyfilename1, npyfilename2, kernel_file_name):
+    def __init__(self, npyfilename, kernel_file_name):
 
         """
           npyfilename : names of .npy files to load
@@ -30,7 +30,8 @@ class Image_data(object):
          """
         
        
-        self.original_images = np.vstack([np.load(npyfilename1),np.load(npyfilename2)])
+        #self.original_images = np.vstack([np.load(npyfilename1),np.load(npyfilename2)])
+        self.original_images = np.load(npyfilename)
         kernel = loadmat(kernel_file_name)
         self.kernel = kernel['A']
 
@@ -48,6 +49,8 @@ class Image_data(object):
         for i in range(self.total_image_num):
             self.original_images[i]= self.original_images[i]/255
             self.conv_images[i] = self.conv_images[i]/255
+    def load_data(self):
+        return self.original_images, self.conv_images
             
     
 
