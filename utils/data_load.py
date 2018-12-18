@@ -22,27 +22,17 @@ class Image_data(object):
 
     """
 
-    def __init__(self, npyfilename, pathstodir, kernel_file_name):
+    def __init__(self, npyfilenames, kernel_file_name):
 
         """
           npyfilename : names of .npy files to load
-          pathtodir : path to additional images to add to the dataset
-          kernel_size : kernel size of the filter to get convoluted images
-          kernel_type : gaussian, random,
+          kernel_file_name: Kernel to be loaded
          """
-        images_gray1 = np.load(npyfilename)
-        print('loaded npy file')
-        #VOC load
-        images_PASCAL = []
-        for path in pathstodir:
-            dirs = os.listdir( path )
-            for i in dirs:
-                image = scipy.ndimage.imread(path+i,mode = 'L')
-                image = scipy.misc.imresize(image,(224,224))
-                images_PASCAL.append(image)
-            print('loaded VOC data in'+path)   
-        images_PASCAL = np.asarray(images_PASCAL)
-        self.original_images = np.vstack((images_gray1,images_PASCAL))
+        original_images = []
+        for path in npyfilenames:
+            original_images.append(np.load(path))
+            print('loaded npy file '+path)
+        self.original_images = np.asarray(original_images)
         kernel = loadmat(kernel_file_name)
         self.kernel = kernel['A']
 
