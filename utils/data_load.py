@@ -22,17 +22,15 @@ class Image_data(object):
 
     """
 
-    def __init__(self, npyfilenames, kernel_file_name):
+    def __init__(self, npyfilename1, npyfilename2, kernel_file_name):
 
         """
           npyfilename : names of .npy files to load
           kernel_file_name: Kernel to be loaded
          """
-        original_images = []
-        for path in npyfilenames:
-            original_images.append(np.load(path))
-            print('loaded npy file '+path)
-        self.original_images = np.asarray(original_images)
+        
+       
+        self.original_images = np.vstack([np.load(npyfilename1),np.load(npyfilename2)])
         kernel = loadmat(kernel_file_name)
         self.kernel = kernel['A']
 
@@ -40,15 +38,16 @@ class Image_data(object):
         print('original images loaded')
     
     def compute_image_conv(self):
-        conv_images = []
+        conv_images = np.zeros_like(self.original_images)
         for i in range(self.total_image_num):
-            conv_images.append(signal.fftconvolve(self.original_images[i],self.kernel,mode = 'same'))
-        self.conv_images = np.asarray(conv_images)
+            conv_images[i] = signal.fftconvolve(self.original_images[i],self.kernel,mode = 'same')
+        self.conv_images = conv_images
         print('conv images created')
 
     def normalise(self):
-        self.original_images = self.original_images/255
-        self.conv_images = self.conv_images
+        for i in range(self.total_image_num):
+            self.original_images[i]= self.original_images[i]/255
+            self.conv_images[i] = self.conv_images[i]/255
             
     
 
