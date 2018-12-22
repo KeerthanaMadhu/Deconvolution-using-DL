@@ -1,4 +1,4 @@
- # Sparse Blind Deconvolution using Deep Learning
+ # Deconvolution using Deep Learning
  
 1. The dataset file 'gray_scale.npy' is taken from kaggle.
    https://www.kaggle.com/shravankumar9892/image-colorization
