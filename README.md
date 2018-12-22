@@ -9,3 +9,11 @@ Run each cell step by step to load data, train the model and run inference on te
 While training the models, a new name has to be given to the log folder and the model folder so that models can be saved after each epoch and losses could be stored
 
 ![alt text](https://raw.githubusercontent.com/KeerthanaMadhu/Deep-Learning-for-SBD/master/image_readme.PNG)
+
+# The results of the best model are given below:
+
+<p float="left">
+  <img src="https://raw.githubusercontent.com/KeerthanaMadhu/Deep-Learning-for-SBD/master/orig_best.png" height = "250" width="250" />
+  <img src="https://raw.githubusercontent.com/KeerthanaMadhu/Deep-Learning-for-SBD/master/inpu_best.png" height = "250" width="250"  /> 
+  <img src="https://raw.githubusercontent.com/KeerthanaMadhu/Deep-Learning-for-SBD/master/rec_best.png" height = "250" width="250" />
+</p>
