@@ -1,5 +1,8 @@
  # Sparse Blind Deconvolution using Deep Learning
  
+The dataset is taken from kaggle. Link is given below:
+https://www.kaggle.com/shravankumar9892/image-colorization
+
 The best model is in the location models/model_cnn_BN_uniform_sigma1_addnoise/
  
  
