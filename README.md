@@ -10,7 +10,7 @@ While training the models, a new name has to be given to the log folder and the 
 
 ![alt text](https://raw.githubusercontent.com/KeerthanaMadhu/Deep-Learning-for-SBD/master/image_readme.PNG)
 
-# The results of the best model are given below:
+#### The results of the best model are given below:
 
 <p float="left">
   <img src="https://raw.githubusercontent.com/KeerthanaMadhu/Deep-Learning-for-SBD/master/orig_best.png" height = "250" width="250" />
